@@ -6,14 +6,18 @@ export default function Popup() {
   const [newKeyword, setNewKeyword] = useState("");
 
   useEffect(() => {
-    chrome.storage.sync.get({ keywords: [] }, (data) => {
+    chrome.storage.local.get({ keywords: [] }, (data) => {
       setKeywords(data.keywords);
     });
   }, []);
 
   const saveKeywords = (updated: string[]) => {
     setKeywords(updated);
-    chrome.storage.sync.set({ keywords: updated });
+    chrome.storage.local.set({ keywords: updated }, () => {
+      if (chrome.runtime.lastError) {
+        console.error("Storage error:", chrome.runtime.lastError);
+      }
+    });
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs[0]?.id) {
         chrome.tabs.sendMessage(tabs[0].id, {
@@ -23,7 +27,6 @@ export default function Popup() {
       }
     });
   };
-
   const addKeyword = () => {
     if (!newKeyword.trim()) return;
     saveKeywords([...keywords, newKeyword.trim()]);
@@ -35,7 +38,7 @@ export default function Popup() {
   };
 
   return (
-    <div className="p-4 w-64 text-sm">
+    <div className="p-4 w-128 text-sm">
       <h1 className="text-lg font-bold mb-2">Keyword Filter</h1>
       <div className="mb-2 flex">
         <input
