@@ -19,11 +19,11 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.reddit.com/*"],
+      "matches": ["https://www.reddit.com/*", "http://www.reddit.com/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
   ],
   "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["https://www.reddit.com/*"]
+  "host_permissions": ["https://www.reddit.com/*", "http://www.reddit.com/*"]
 }

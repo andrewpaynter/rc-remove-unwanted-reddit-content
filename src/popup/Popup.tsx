@@ -39,7 +39,7 @@ export default function Popup() {
 
   return (
     <div className="p-4 w-128 text-sm">
-      <h1 className="text-lg font-bold mb-2">Keyword Filter</h1>
+      <h1 className="text-lg font-bold mb-2">RC: improve your reddit experience</h1>
       <div className="mb-2 flex">
         <input
           className="flex-1 border p-1 rounded"
