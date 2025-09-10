@@ -1,4 +1,4 @@
-# My Vite Firefox Extension (starter)
+# RC - Remove Unwanted Reddit Content
 
 ## Setup
 
