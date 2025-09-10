@@ -1,5 +1,8 @@
 # RC - Remove Unwanted Reddit Content
 
+![Kapture 2025-09-10 at 11 25 16](https://github.com/user-attachments/assets/da53db35-8d87-49c2-a708-d9912f6ee785)
+
+
 ## Setup
 
 1. Install dependencies:
