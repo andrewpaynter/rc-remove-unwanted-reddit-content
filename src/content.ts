@@ -1,4 +1,4 @@
-console.log('content script running');
+console.log('RC: content script running');
 
 let keywords: string[] = [];
 
@@ -18,7 +18,7 @@ const scanPosts = (fromScratch: boolean = false) => {
       const text = (post.shadowRoot instanceof HTMLElement) ? post.shadowRoot.innerText : post.innerText;
       if (keywords.some(key => text.includes(key))) {
         const permalink = post.getAttribute('permalink');
-        console.log("Deleted www.reddit.com" + permalink);
+        console.log("RC: Deleted www.reddit.com" + permalink);
         post.remove();
       }
     }

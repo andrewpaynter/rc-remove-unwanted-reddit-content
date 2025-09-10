@@ -1,9 +1,10 @@
-console.log('background service worker loaded');
+console.log('RC: background service worker loaded');
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log('Extension installed');
-});
-
-chrome.action.onClicked.addListener((tab) => {
-  console.log('action clicked', tab?.id);
+  chrome.storage.local.set({ keywords: ["Trump"] }, () => {
+    if (chrome.runtime.lastError) {
+      console.error("Storage error:", chrome.runtime.lastError);
+    }
+  });
 });
