@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Chemo",
+  "version": "0.1.0",
+  "description": "Remove cancer from your reddit experience",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "48": "icons/icon-48.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"]
+}

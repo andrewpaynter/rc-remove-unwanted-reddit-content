@@ -1,0 +1,31 @@
+{
+  "name": "my-vite-firefox-extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5174",
+    "lint": "eslint --ext .ts,.tsx src || true",
+    "web-ext:run": "web-ext run --source-dir=dist --start-url about:debugging",
+    "web-ext:build": "web-ext build --source-dir=dist  --overwrite-dest"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.192",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^10.4.14",
+    "esbuild": "^0.19.4",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.3.3",
+    "vite": "^5.2.0",
+    "web-ext": "^7.6.0"
+  }
+}
